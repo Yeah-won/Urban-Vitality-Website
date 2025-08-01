@@ -6,7 +6,6 @@ from folium.features import GeoJsonTooltip
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
-import subprocess
 import matplotlib as mpl
 import io
 import numpy as np
@@ -15,16 +14,6 @@ import numpy as np
 from pytorch_tabnet.tab_model import TabNetRegressor
 import torch
 
-# 나눔고딕 설치 (Streamlit Cloud에서 리눅스 명령 실행)
-subprocess.run(["apt-get", "install", "-y", "fonts-nanum"], check=True)
-subprocess.run(["fc-cache", "-fv"], check=True)
-
-# 폰트 경로 지정 후 설정
-font_path = "/usr/share/fonts/truetype/nanum/NanumGothic.ttf"
-font_name = fm.FontProperties(fname=font_path).get_name()
-
-plt.rcParams['font.family'] = font_name
-mpl.rcParams['axes.unicode_minus'] = False
 
 @st.cache_resource
 def load_tabnet_model():
@@ -61,9 +50,13 @@ FEATURES = ['sub_500m', 'ind_cluste', 'pop', 'worker',
        'green_ratio', 'industrial_ratio', 'management_ratio',
        'residential_ratio'
 ]
-# ✅ 한글 폰트 설정
-plt.rcParams['font.family'] = 'Malgun Gothic'  # 또는 'NanumGothic'
+# 폰트 경로 설정 (apt로 설치된 나눔고딕)
+font_path = "/usr/share/fonts/truetype/nanum/NanumGothic.ttf"
+font_name = fm.FontProperties(fname=font_path).get_name()
+
+plt.rcParams['font.family'] = font_name
 mpl.rcParams['axes.unicode_minus'] = False
+
 # ✅ 마크다운 설정
 st.markdown("""
 <style>
