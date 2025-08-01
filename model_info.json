@@ -1,0 +1,10 @@
+{
+  "model_type": "TabNetRegressor",
+  "target_variable": "day (도시활력)",
+  "train_r2": 0.637,
+  "test_r2": 0.401,
+  "n_features": 29,
+  "training_date": "2025-07-31 13:03:44",
+  "best_epoch": 406,
+  "description": "택지개발지구 도시활력 예측 모델"
+}
