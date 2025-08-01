@@ -296,7 +296,7 @@ with col2:
     st.subheader("계획 용지 비율")
 
     # ✅ 파이차트 데이터 정의
-    pie_labels = ["주거용지", "상업용지", "산업용지", "기반시설용지", "관광휴양용지"]
+    pie_labels = ["Residential", "Commercial", "Industrial", "Infrastructure", "Tourism"]
     pie_keys = ["주거용지_구성비", "상업용지_구성비", "산업시설_구성비", "기반시설용지_구성비", "관광휴양용지_구성비"]
     pie_values = [selected_row.get(key, 0) or 0 for key in pie_keys]
 
