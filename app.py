@@ -50,15 +50,9 @@ FEATURES = ['sub_500m', 'ind_cluste', 'pop', 'worker',
        'green_ratio', 'industrial_ratio', 'management_ratio',
        'residential_ratio'
 ]
-# 폰트 이름에 'Nanum'이 들어간 첫 번째 폰트를 자동으로 선택
-font_candidates = [f for f in fm.findSystemFonts(fontpaths=None, fontext='ttf') if 'Nanum' in f]
-if font_candidates:
-    font_path = font_candidates[0]
-    font_name = fm.FontProperties(fname=font_path).get_name()
-    plt.rcParams['font.family'] = font_name
-    mpl.rcParams['axes.unicode_minus'] = False
-else:
-    st.warning("⚠️ 한글 폰트를 찾을 수 없습니다. apt-packages.txt에 'fonts-nanum'이 있는지 확인해주세요.")
+# ✅ 한글 폰트 설정
+plt.rcParams['font.family'] = 'NanumGothic'
+mpl.rcParams['axes.unicode_minus'] = False
 
 # ✅ 마크다운 설정
 st.markdown("""
