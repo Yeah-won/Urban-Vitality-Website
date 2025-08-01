@@ -103,7 +103,7 @@ st.markdown("""
 
 # 페이지 설정
 st.set_page_config(layout="wide")
-st.title("택지개발지구 생활인구 예측 시뮬레이")
+st.title("택지개발지구 생활인구 예측 시뮬레이터")
 
 
 # 1. 세션 상태 초기화 부분에 추가 (기존 초기화 코드들 다음에)
@@ -313,7 +313,7 @@ with col2:
             autopct='%1.1f%%',
             startangle=90,
             textprops={'fontsize': 9, 
-                      'fontfamily': 'DejaVu Sans'}
+                      'family': 'NanumGothic'}
         )
         ax.axis('equal')
 
