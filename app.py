@@ -313,7 +313,7 @@ with col2:
             autopct='%1.1f%%',
             startangle=90,
             textprops={'fontsize': 9, 
-                      'family': 'NanumGothic'}
+                      'fontfamily': 'NanumGothic'}
         )
         ax.axis('equal')
 
