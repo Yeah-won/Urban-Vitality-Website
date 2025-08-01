@@ -19,8 +19,8 @@ def load_tabnet_model():
     """TabNet 모델과 관련 정보를 로드"""
     try:
         # 모델 파일 경로 설정
-        model_path = r"E:\인문공동\8월\최최최종\tabnet_model.zip"
-        feature_names_path = r"E:\인문공동\8월\최최최종\feature_names.json"
+        model_path = "tabnet_model.zip"
+        feature_names_path = "feature_names.json"
         
         # 특성 이름 로드
         with open(feature_names_path, 'r', encoding='utf-8') as f:
@@ -127,7 +127,7 @@ for key in ratio_keys:
 
 # ✅ 데이터 불러오기
 # ✅ shp 파일 불러온 직후
-gdf = gpd.read_file(r"E:\인문공동\8월\최최최종\data.gpkg", layer="data", encoding="utf-8").to_crs(epsg=4326)
+gdf = gpd.read_file("data.gpkg", layer="data", encoding="utf-8").to_crs(epsg=4326)
 gdf["geometry"] = gdf["geometry"].simplify(0.0005, preserve_topology=True)
 
 # ✅ 고정 BE 비율 컬럼 처리
@@ -268,14 +268,14 @@ def add_cluster_markers(csv_path, color, name, center_lat, center_lon, radius_km
         ).add_to(m)
 
 add_cluster_markers(
-    r"E:\인문공동\8월\webtest_250730\industry_cluster_centers.csv",
+    "industry_cluster_centers.csv",
     color="green",
     name="산업",
     center_lat=center.y,
     center_lon=center.x
 )
 add_cluster_markers(
-    r"E:\인문공동\8월\webtest_250730\restaurant_cluster_centers.csv",
+    "restaurant_cluster_centers.csv",
     color="red",
     name="음식점",
     center_lat=center.y,
