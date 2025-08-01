@@ -5,7 +5,8 @@ import geopandas as gpd
 from folium.features import GeoJsonTooltip
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+import subprocess
 import matplotlib as mpl
 import io
 import numpy as np
@@ -13,6 +14,17 @@ import json
 import numpy as np
 from pytorch_tabnet.tab_model import TabNetRegressor
 import torch
+
+# 나눔고딕 설치 (Streamlit Cloud에서 리눅스 명령 실행)
+subprocess.run(["apt-get", "install", "-y", "fonts-nanum"], check=True)
+subprocess.run(["fc-cache", "-fv"], check=True)
+
+# 폰트 경로 지정 후 설정
+font_path = "/usr/share/fonts/truetype/nanum/NanumGothic.ttf"
+font_name = fm.FontProperties(fname=font_path).get_name()
+
+plt.rcParams['font.family'] = font_name
+mpl.rcParams['axes.unicode_minus'] = False
 
 @st.cache_resource
 def load_tabnet_model():
